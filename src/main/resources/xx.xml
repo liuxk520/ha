@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <springProfile name="dev">
+        <property name="LOG_FILE" value="D:/heroes.log"/>
+    </springProfile>
+    <springProfile name="prod">
+        <property name="LOG_FILE" value="/var/log/heroes.log"/>
+    </springProfile>
+
+    <include resource="org/springframework/boot/logging/logback/base.xml"/>
+
+    <logger name="root" level="WARN"/>
+
+    <springProfile name="dev">
+        <logger name="root" level="INFO"/>
+    </springProfile>
+    <springProfile name="prod">
+        <logger name="root" level="INFO"/>
+    </springProfile>
+</configuration>

@@ -1,0 +1,44 @@
+api:
+  base-path: /api
+c:
+  cors:
+    allowed-origins: "*"
+    allowed-methods: GET,POST,DELETE,PUT,OPTIONS
+    allowed-headers: Origin,X-Requested-With,Content-Type,Accept,Accept-Encoding,Accept-Language,Host,Referer,Connection,User-Agent,Authorization
+  jwt:
+    header: Authorization
+    secret: mySecret
+    expiration: 7200
+    issuer: ITRunner
+    authentication-path: /auth
+
+springfox:
+  documentation:
+    swagger:
+      v2:
+        path: /api-docs
+
+management:
+  server:
+    port: 8090
+  endpoints:
+    web:
+      base-path: /actuator
+      exposure:
+        include: health,info
+
+info:
+  app:
+    name: heroes
+    version: 1.0
+server:
+  port: 8088
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/db_liuxiaokang
+    username: root
+    password: 123456
+  jpa:
+    show-sql: true
