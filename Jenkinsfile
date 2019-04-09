@@ -1,4 +1,5 @@
 node {
+    checkout scm
     stage("Test") {
         sh "pwd"
        // sh "mvn test"
